@@ -526,8 +526,536 @@ Best regards,
     </main>
 
     <!-- Footer -->
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="IMQX5LEJMnnX9WDbP44cdi60Xg7l6NL1YtAr" />
+    <title>Document Generation Pack - Automate Google Docs Creation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="20" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .cta-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* How it Works */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .step p {
+            color: #64748b;
+        }
+        
+        /* Getting Started */
+        .getting-started {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 60px 0;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .use-case {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+        
+        .use-case h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .footer-section p, .footer-section li {
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #475569;
+            padding-top: 30px;
+            color: #94a3b8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Document Generation Pack</h1>
+                <p class="hero-subtitle">Transform your workflow with automated Google Docs generation. Create personalized documents from templates in seconds, not hours.</p>
+                <a href="https://coda.io/@toolkit/document-generation-pack" class="cta-button">Get Started in Coda →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Features Section -->
+            <section class="section">
+                <h2 class="section-title">Why Choose Document Generation Pack?</h2>
+                <p class="section-subtitle">Streamline your document workflow with powerful automation features designed for modern teams.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">⚡</span>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate documents in seconds with our optimized template engine. What used to take hours now takes clicks.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h3>Smart Replacement</h3>
+                        <p>Dynamically replace placeholders with custom data. Perfect for contracts, invoices, and personalized content.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">📁</span>
+                        <h3>Auto Organization</h3>
+                        <p>Automatically organize documents into folders with custom naming patterns. Keep your Drive clean and structured.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🔄</span>
+                        <h3>Bulk Operations</h3>
+                        <p>Create multiple documents at once with different data sets. Scale your document production effortlessly.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🔗</span>
+                        <h3>Seamless Integration</h3>
+                        <p>Works natively within Coda. Access your documents directly in your workspace with instant links.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🛡️</span>
+                        <h3>Secure & Private</h3>
+                        <p>All operations happen in your Google Drive. No data stored externally, full control over your documents.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How it Works -->
+            <section class="section">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get up and running in 4 simple steps</p>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Create Template</h3>
+                        <p>Design your Google Docs template with <span class="highlight">&lt;&lt;placeholders&gt;&gt;</span> for dynamic content</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Install Pack</h3>
+                        <p>Add the Document Generation Pack to your Coda workspace and authorize Google access</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Configure & Generate</h3>
+                        <p>Use simple formulas to specify template, data, and output preferences</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Access Results</h3>
+                        <p>Get instant links to your generated documents, perfectly organized in Google Drive</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Getting Started -->
+            <section class="getting-started">
+                <h2 class="section-title">Getting Started Guide</h2>
+                
+                <div class="tabs">
+                    <div class="tab active" onclick="showTab('installation')">Installation</div>
+                    <div class="tab" onclick="showTab('quickstart')">Quick Start</div>
+                    <div class="tab" onclick="showTab('examples')">Examples</div>
+                </div>
+                
+                <div id="installation" class="tab-content active">
+                    <h3>Installation Steps</h3>
+                    <ol>
+                        <li><strong>Open your Coda workspace</strong></li>
+                        <li><strong>Navigate to Packs</strong> in the left sidebar</li>
+                        <li><strong>Search for "Document Generation"</strong></li>
+                        <li><strong>Click "Add to doc"</strong> to install</li>
+                        <li><strong>Authorize Google Drive/Docs access</strong> when prompted</li>
+                    </ol>
+                </div>
+                
+                <div id="quickstart" class="tab-content">
+                    <h3>Create Your First Document</h3>
+                    <p><strong>Step 1:</strong> Prepare your template with placeholders:</p>
+                    <div class="code-block">
+Dear &lt;&lt;ClientName&gt;&gt;,
+
+Your invoice #&lt;&lt;InvoiceNumber&gt;&gt; for $&lt;&lt;Amount&gt;&gt; is due on &lt;&lt;DueDate&gt;&gt;.
+
+Best regards,
+&lt;&lt;YourName&gt;&gt;
+                    </div>
+                    
+                    <p><strong>Step 2:</strong> Use the CreateDocument formula in Coda:</p>
+                    <div class="code-block">
+=CreateDocument(
+  "your-template-url",
+  "parent-folder-id", 
+  "2024/Invoices",
+  "Invoice-&lt;&lt;InvoiceNumber&gt;&gt;",
+  "",
+  "ClientName", "ABC Corp",
+  "InvoiceNumber", "001",
+  "Amount", "1500",
+  "DueDate", "2024-02-15",
+  "YourName", "John Smith"
+)
+                    </div>
+                </div>
+                
+                <div id="examples" class="tab-content">
+                    <h3>Real-World Examples</h3>
+                    <div class="use-cases">
+                        <div class="use-case">
+                            <h4>📄 Contract Generation</h4>
+                            <p><strong>Template:</strong> "Service Agreement - &lt;&lt;ClientName&gt;&gt;"</p>
+                            <p><strong>Result:</strong> "Service Agreement - ABC Corp.docx"</p>
+                            <p>Perfect for legal teams generating client contracts with custom terms.</p>
+                        </div>
+                        
+                        <div class="use-case">
+                            <h4>💰 Invoice Automation</h4>
+                            <p><strong>Template:</strong> Replace invoice details automatically</p>
+                            <p><strong>Organization:</strong> Saved to "2024/January/Invoices"</p>
+                            <p>Streamline billing with automated invoice generation and organization.</p>
+                        </div>
+                        
+                        <div class="use-case">
+                            <h4>📊 Report Generation</h4>
+                            <p><strong>Template:</strong> Monthly reports with dynamic data</p>
+                            <p><strong>Bulk creation:</strong> Generate reports for multiple departments</p>
+                            <p>Create consistent reports with updated metrics and data.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <!-- Company Info Section -->
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 15px; margin-bottom: 40px; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <div style="width: 50px; height: 50px; margin-right: 15px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; font-weight: bold;">B&P</div>
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.8rem; color: white;">Bot&Partners LLC</h3>
+                        <p style="margin: 5px 0 0 0; color: rgba(255,255,255,0.9); font-size: 1rem;">Business Process Automation Specialists</p>
+                    </div>
+                </div>
+                <p style="color: rgba(255,255,255,0.95); font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                    We develop innovative systems to automate business processes using Coda.io platform. Our solutions help companies streamline workflows, eliminate manual tasks, and boost productivity through intelligent automation.
+                </p>
+            </div>
+
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Product</h3>
