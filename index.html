@@ -3,172 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate thousands of Google Docs from templates with a single click. The ultimate document automation tool for Coda.">
     <meta name="google-site-verification" content="IMQX5LEJMnnX9WDbP44cdi60Xg7l6NL1YtAr" />
-    <title>Document Generation Pack - Automate Google Docs Creation</title>
+    <title>Document Generation Pack - Automate Google Docs in Coda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --background-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+        }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #f8fafc;
+        html {
+            scroll-behavior: smooth;
         }
-        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 15px 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="20" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
+        .logo {
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            font-weight: 400;
+        .hero-slogan {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
         }
-        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
         .cta-button {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 15px 30px;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 16px 32px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
         .cta-button:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
-        
-        /* Main Content */
+
+        /* General Section Styling */
         .main-content {
-            padding: 80px 0;
+            padding: 100px 0;
         }
-        
         .section {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
-        
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            margin-bottom: 15px;
+            color: var(--text-dark);
             text-align: center;
         }
-        
         .section-subtitle {
             font-size: 1.2rem;
-            color: #64748b;
+            color: var(--text-light);
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
-        
         .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: var(--white);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color);
         }
-        
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
-        
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
         }
-        
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+        }
         .feature-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
-        
         .feature-card p {
-            color: #64748b;
-            line-height: 1.6;
+            color: var(--text-light);
         }
-        
+
         /* How it Works */
         .steps-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .step {
-            text-align: center;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             position: relative;
         }
-        
+        /* Connecting line */
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: var(--border-color);
+            z-index: -1;
+        }
+        .step {
+            text-align: center;
+        }
         .step-number {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -176,398 +211,358 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0 auto 20px;
+            box-shadow: 0 0 0 4px var(--background-light);
         }
-        
         .step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-        
-        .step p {
-            color: #64748b;
-        }
-        
-        /* Getting Started */
-        .getting-started {
-            background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin: 60px 0;
-        }
-        
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        .tab {
-            padding: 15px 30px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: #64748b;
-        }
-        
-        .tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        .code-block {
-            background: #1e293b;
-            color: #e2e8f0;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Monaco', 'Consolas', monospace;
-            margin: 15px 0;
-            overflow-x: auto;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        /* Use Cases */
-        .use-cases {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .use-case {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
-        
-        .use-case h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
             font-size: 1.2rem;
+            margin-bottom: 10px;
         }
-        
+        .step p {
+            color: var(--text-light);
+        }
+
+        /* Use Cases Section */
+        .use-case-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        .use-case-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .faq-answer p {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .final-cta .section-title {
+            color: var(--white);
+        }
+        .final-cta .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
         /* Footer */
         .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 60px 0 40px;
-            text-align: center;
+            background: var(--text-dark);
+            color: #94a3b8;
+            padding: 60px 0 30px;
         }
-        
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
-        
         .footer-section h3 {
+            color: var(--white);
             margin-bottom: 20px;
-            color: #667eea;
         }
-        
-        .footer-section p, .footer-section li {
-            color: #94a3b8;
-            margin-bottom: 10px;
-        }
-        
         .footer-section ul {
             list-style: none;
         }
-        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
         .footer-section a {
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-        
         .footer-section a:hover {
-            color: #667eea;
+            color: var(--primary-color);
         }
-        
         .footer-bottom {
             border-top: 1px solid #475569;
             padding-top: 30px;
-            color: #94a3b8;
+            text-align: center;
+            font-size: 0.9rem;
         }
-        
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        @media (max-width: 992px) {
+            .steps-container::before {
+                display: none;
             }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .steps-container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .tabs {
-                flex-direction: column;
-            }
-            
-            .tab {
-                text-align: center;
-                border-bottom: 1px solid #e2e8f0;
-            }
+        }
+        @media (max-width: 768px) {
+            .nav-content { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-slogan { font-size: 1.4rem; }
+            .section-title { font-size: 2.2rem; }
+            .features-grid, .steps-container { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Document Generation Pack</h1>
-                <p class="hero-subtitle">Transform your workflow with automated Google Docs generation. Create personalized documents from templates in seconds, not hours.</p>
-                <a href="https://coda.io/@toolkit/document-generation-pack" class="cta-button">Get Started in Coda →</a>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">Document Generation</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://coda.io/@toolkit/document-generation-pack/sample-12">Get Sample Doc</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Main Content -->
+    <header class="hero">
+        <div class="container">
+            <h1>Automate Your Document Workflow</h1>
+            <p class="hero-slogan">Thousands of documents. One click.</p>
+            <p class="hero-subtitle">The ultimate Coda Pack to generate personalized Google Docs from templates. Eliminate manual work and save countless hours.</p>
+            <a href="https://coda.io/@toolkit/document-generation-pack" target="_blank" rel="noopener" class="cta-button">Install Pack for Free →</a>
+        </div>
+    </header>
+
     <main class="main-content">
         <div class="container">
             
-            <!-- Features Section -->
-            <section class="section">
-                <h2 class="section-title">Why Choose Document Generation Pack?</h2>
-                <p class="section-subtitle">Streamline your document workflow with powerful automation features designed for modern teams.</p>
+            <section id="features" class="section fade-in">
+                <h2 class="section-title">A Smarter Way to Create Documents</h2>
+                <p class="section-subtitle">Our pack is loaded with powerful features designed to put your document creation on autopilot.</p>
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon">⚡</span>
-                        <h3>Lightning Fast</h3>
-                        <p>Generate documents in seconds with our optimized template engine. What used to take hours now takes clicks.</p>
+                        <div class="feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+                        </div>
+                        <h3>Dynamic Content Engine</h3>
+                        <p>Automatically populate your templates with any data from your Coda tables—text, numbers, lists, and more.</p>
                     </div>
                     
                     <div class="feature-card">
-                        <span class="feature-icon">🎯</span>
-                        <h3>Smart Replacement</h3>
-                        <p>Dynamically replace placeholders with custom data. Perfect for contracts, invoices, and personalized content.</p>
+                        <div class="feature-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0v6A2.25 2.25 0 006 18h12a2.25 2.25 0 002.25-2.25v-6" /></svg>
+                        </div>
+                        <h3>Intelligent Organization</h3>
+                        <p>Create dynamic folder structures in Google Drive automatically. Save files exactly where they belong, every time.</p>
                     </div>
-                    
+
                     <div class="feature-card">
-                        <span class="feature-icon">📁</span>
-                        <h3>Auto Organization</h3>
-                        <p>Automatically organize documents into folders with custom naming patterns. Keep your Drive clean and structured.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🔄</span>
-                        <h3>Bulk Operations</h3>
-                        <p>Create multiple documents at once with different data sets. Scale your document production effortlessly.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🔗</span>
-                        <h3>Seamless Integration</h3>
-                        <p>Works natively within Coda. Access your documents directly in your workspace with instant links.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🛡️</span>
-                        <h3>Secure & Private</h3>
-                        <p>All operations happen in your Google Drive. No data stored externally, full control over your documents.</p>
+                        <div class="feature-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-7.5a2.25 2.25 0 012.25-2.25h.75" /></svg>
+                        </div>
+                        <h3>Effortless Regeneration</h3>
+                        <p>Update a document with one click. The pack can automatically delete the old version and replace it with a new one.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- How it Works -->
-            <section class="section">
-                <h2 class="section-title">How It Works</h2>
-                <p class="section-subtitle">Get up and running in 4 simple steps</p>
+            <section id="how-it-works" class="section fade-in">
+                <h2 class="section-title">Your Workflow, Automated</h2>
+                <p class="section-subtitle">Go from data to document in four simple steps.</p>
                 
                 <div class="steps-container">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h3>Create Template</h3>
-                        <p>Design your Google Docs template with <span class="highlight">&lt;&lt;placeholders&gt;&gt;</span> for dynamic content</p>
+                        <h3>Prepare Template</h3>
+                        <p>Create a Google Doc with simple placeholders like `<<ClientName>>`.</p>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3>Install Pack</h3>
-                        <p>Add the Document Generation Pack to your Coda workspace and authorize Google access</p>
+                        <h3>Organize Data</h3>
+                        <p>Set up a table in Coda with columns matching your placeholders.</p>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3>Configure & Generate</h3>
-                        <p>Use simple formulas to specify template, data, and output preferences</p>
+                        <h3>Configure Pack</h3>
+                        <p>Add a button and map your Coda data to the template placeholders.</p>
                     </div>
                     
                     <div class="step">
                         <div class="step-number">4</div>
-                        <h3>Access Results</h3>
-                        <p>Get instant links to your generated documents, perfectly organized in Google Drive</p>
+                        <h3>Automate</h3>
+                        <p>Click the button to instantly generate and save your personalized document.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Getting Started -->
-            <section class="getting-started">
-                <h2 class="section-title">Getting Started Guide</h2>
-                
-                <div class="tabs">
-                    <div class="tab active" onclick="showTab('installation')">Installation</div>
-                    <div class="tab" onclick="showTab('quickstart')">Quick Start</div>
-                    <div class="tab" onclick="showTab('examples')">Examples</div>
-                </div>
-                
-                <div id="installation" class="tab-content active">
-                    <h3>Installation Steps</h3>
-                    <ol>
-                        <li><strong>Open your Coda workspace</strong></li>
-                        <li><strong>Navigate to Packs</strong> in the left sidebar</li>
-                        <li><strong>Search for "Document Generation"</strong></li>
-                        <li><strong>Click "Add to doc"</strong> to install</li>
-                        <li><strong>Authorize Google Drive/Docs access</strong> when prompted</li>
-                    </ol>
-                </div>
-                
-                <div id="quickstart" class="tab-content">
-                    <h3>Create Your First Document</h3>
-                    <p><strong>Step 1:</strong> Prepare your template with placeholders:</p>
-                    <div class="code-block">
-Dear &lt;&lt;ClientName&gt;&gt;,
+            <section id="use-cases" class="section fade-in">
+                 <h2 class="section-title">Perfect For Any Workflow</h2>
+                 <p class="section-subtitle">From contracts to reports, automate any repetitive document you can imagine.</p>
+                 <div class="use-case-card">
+                     <h4>📄 Contracts & Agreements</h4>
+                     <p>Generate personalized service agreements, NDAs, and employment contracts by pulling client or employee data directly from your Coda CRM.</p>
+                 </div>
+                 <div class="use-case-card">
+                     <h4>💰 Invoices & Quotes</h4>
+                     <p>Automate your entire billing process. Create and organize professional invoices and quotes based on your project tracking tables in Coda.</p>
+                 </div>
+                 <div class="use-case-card">
+                     <h4>📊 Custom Reports</h4>
+                     <p>Generate consistent weekly or monthly reports for clients or internal teams by populating a template with the latest metrics and data.</p>
+                 </div>
+            </section>
 
-Your invoice #&lt;&lt;InvoiceNumber&gt;&gt; for $&lt;&lt;Amount&gt;&gt; is due on &lt;&lt;DueDate&gt;&gt;.
-
-Best regards,
-&lt;&lt;YourName&gt;&gt;
-                    </div>
-                    
-                    <p><strong>Step 2:</strong> Use the CreateDocument formula in Coda:</p>
-                    <div class="code-block">
-=CreateDocument(
-  "your-template-url",
-  "parent-folder-id", 
-  "2024/Invoices",
-  "Invoice-&lt;&lt;InvoiceNumber&gt;&gt;",
-  "",
-  "ClientName", "ABC Corp",
-  "InvoiceNumber", "001",
-  "Amount", "1500",
-  "DueDate", "2024-02-15",
-  "YourName", "John Smith"
-)
+            <section id="faq" class="section fade-in">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Have questions? We've got answers.</p>
+                <div class="faq-item">
+                    <button class="faq-question">Is my data secure?</button>
+                    <div class="faq-answer">
+                        <p>Absolutely. The pack operates as a direct bridge between your Coda doc and your Google Account. We do not store, view, or process your data on any external servers. All operations happen within Coda's secure environment and your own Google Drive.</p>
                     </div>
                 </div>
-                
-                <div id="examples" class="tab-content">
-                    <h3>Real-World Examples</h3>
-                    <div class="use-cases">
-                        <div class="use-case">
-                            <h4>📄 Contract Generation</h4>
-                            <p><strong>Template:</strong> "Service Agreement - &lt;&lt;ClientName&gt;&gt;"</p>
-                            <p><strong>Result:</strong> "Service Agreement - ABC Corp.docx"</p>
-                            <p>Perfect for legal teams generating client contracts with custom terms.</p>
-                        </div>
-                        
-                        <div class="use-case">
-                            <h4>💰 Invoice Automation</h4>
-                            <p><strong>Template:</strong> Replace invoice details automatically</p>
-                            <p><strong>Organization:</strong> Saved to "2024/January/Invoices"</p>
-                            <p>Streamline billing with automated invoice generation and organization.</p>
-                        </div>
-                        
-                        <div class="use-case">
-                            <h4>📊 Report Generation</h4>
-                            <p><strong>Template:</strong> Monthly reports with dynamic data</p>
-                            <p><strong>Bulk creation:</strong> Generate reports for multiple departments</p>
-                            <p>Create consistent reports with updated metrics and data.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I use this for bulk generation?</button>
+                    <div class="faq-answer">
+                        <p>Yes. You can use Coda's automation features to trigger the pack for multiple rows at once or on a schedule, allowing you to generate hundreds or thousands of documents automatically.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question">What kind of data can I insert into my documents?</button>
+                    <div class="faq-answer">
+                        <p>You can insert almost any data from your Coda table, including text, numbers, dates, and even simple lists. The pack will replace the corresponding placeholders in your Google Doc template.</p>
+                    </div>
+                </div>
+                 <div class="faq-item">
+                    <button class="faq-question">Do I need to know how to code?</button>
+                    <div class="faq-answer">
+                        <p>Not at all! The pack is designed to be set up entirely within the Coda interface using a simple button configuration panel. No coding is required.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="final-cta fade-in">
+                <h2 class="section-title">Ready to Stop the Copy-Paste?</h2>
+                <p class="section-subtitle">Install the Document Generation Pack today and reclaim hours of your time. Your workflow will thank you.</p>
+                <a href="https://coda.io/@toolkit/document-generation-pack" target="_blank" rel="noopener" class="cta-button">Automate My Documents Now →</a>
             </section>
 
         </div>
     </main>
 
-    <!-- Footer -->
-   <footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Product</h3>
-                <ul>
-                    <li><a href="https://coda.io/@toolkit/document-generation-pack">View in Coda</a></li>
-                    <li><a href="#getting-started">Documentation</a></li>
-                    <li><a href="https://coda.io/@toolkit/document-generation-pack">Get Started</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Document Generation</h3>
+                    <p>Automate Google Docs creation directly from Coda. Developed by Bot&Partners LLC.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="https://coda.io/@toolkit/document-generation-pack/sample-12">Sample Doc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="mailto:toolkit@bot-partners.com">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="https://bot-partners.com/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="https://bot-partners.com/terms-of-use">Terms of Use</a></li>
-                    <li><a href="mailto:toolkit@bot-partners.com">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Bot&Partners LLC</h3>
-                <ul>
-                    <li>Business Process Automation</li>
-                    <li>Coda.io Development Specialists</li>
-                    <li>Email: <a href="mailto:toolkit@bot-partners.com">toolkit@bot-partners.com</a></li>
-                    <li>Response time: 24 hours</li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bot&Partners LLC. All Rights Reserved.</p>
+                 <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 5px;">Google Drive and Google Docs are trademarks of Google LLC.</p>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Bot&Partners LLC - Business Process Automation Specialists</p>
-            <p>Developing intelligent systems to automate business processes using Coda.io platform</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Google Drive and Google Docs are trademarks of Google LLC.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
-        function showTab(tabName) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-            
-            // Remove active class from all tabs
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Show selected tab content
-            document.getElementById(tabName).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // --- Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        fadeInElements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
