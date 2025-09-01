@@ -1,3 +1,10 @@
+Of course. I have taken the professional Privacy Policy text we developed and integrated it directly into the HTML file you provided.
+
+I have replaced the placeholder content within the `<main>` section and updated the "Last Updated" date and the copyright year in the footer. The page structure, navigation, and styling have been preserved.
+
+Here is the complete, updated HTML file ready for you to use.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,7 +197,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <h1>Privacy Policy</h1>
@@ -198,7 +204,6 @@
         </div>
     </header>
 
-    <!-- Navigation -->
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
@@ -213,180 +218,92 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="container">
         <div class="main-content">
             
             <div class="highlight-box">
-                <p><strong>Last Updated:</strong> January 2025</p>
+                <p><strong>Last Updated:</strong> September 1, 2025</p>
             </div>
 
             <div class="section">
-                <h2>Introduction</h2>
-                <p>This Privacy Policy applies to the Document Generation Pack, a Coda Pack developed by Bot&Partners LLC that integrates with Google Drive and Google Docs APIs. We are committed to protecting your privacy and handling your data responsibly.</p>
-                <p>By using the Document Generation Pack, you agree to the collection and use of information in accordance with this policy.</p>
+                <h2>1. Introduction</h2>
+                <p>This Privacy Policy outlines how the "Document Generation" Coda Pack ("the Pack"), developed by Bot&Partners, processes your data. The Pack is designed to integrate your Coda workspace with your Google Drive and Google Docs accounts to automate document creation. We are committed to protecting your privacy and ensuring transparency in our data handling practices.</p>
             </div>
 
             <div class="section">
-                <h2>Information We Collect</h2>
-                
-                <h3>Data Required for Functionality</h3>
-                <p>We collect and process only the data necessary to provide our document generation services:</p>
-                <ul>
-                    <li><strong>Google Drive File IDs:</strong> To access and create documents from templates</li>
-                    <li><strong>Folder Paths and Names:</strong> To organize generated documents in your preferred structure</li>
-                    <li><strong>Document Content:</strong> Temporarily processed for placeholder replacement</li>
-                    <li><strong>File Names:</strong> For naming generated documents according to your specifications</li>
-                </ul>
-
-                <h3>Authentication Data</h3>
-                <p>We use Google OAuth 2.0 for secure authentication. This provides us with:</p>
-                <ul>
-                    <li>Authorization tokens to access your Google Drive and Docs (managed by Coda)</li>
-                    <li>Basic profile information required for API access</li>
-                </ul>
+                <h2>2. Scope of This Policy</h2>
+                <p>This policy applies specifically to the data processed by the Pack. It does not cover the data practices of Coda or Google. We encourage you to review the respective privacy policies of Coda and Google, as your use of their platforms is subject to their terms.</p>
             </div>
 
             <div class="section">
-                <h2>How We Use Your Information</h2>
-                
-                <h3>Primary Purposes</h3>
-                <p>Your data is used exclusively for:</p>
+                <h2>3. Information We Process</h2>
+                <p>The Pack does not collect or store your data on its own servers. It acts as an intermediary, processing data only when you initiate an action. The types of data processed include:</p>
+                <h3>User-Provided Data</h3>
                 <ul>
-                    <li><strong>Document Creation:</strong> Generating new documents from your specified templates</li>
-                    <li><strong>Content Replacement:</strong> Replacing placeholders with your provided data</li>
-                    <li><strong>File Organization:</strong> Creating folder structures and organizing documents in Google Drive</li>
-                    <li><strong>Document Management:</strong> Deleting or updating documents as requested</li>
+                    <li>Google Docs template IDs, Google Drive folder IDs, target folder paths, and file names that you provide in your Coda table.</li>
+                    <li>Any content from your Coda tables that you map as values to be placed into your document templates (e.g., names, dates, prices, addresses, or any other text or numerical data).</li>
                 </ul>
-
-                <h3>Processing Location</h3>
-                <p>All processing occurs within your Google Drive environment. We do not store your documents or content on external servers.</p>
-            </div>
-
-            <div class="section">
-                <h2>Data Storage and Retention</h2>
-                
-                <div class="highlight-box">
-                    <p><strong>Important:</strong> We do not store your personal data or documents. All operations are performed in real-time within your Google Drive.</p>
-                </div>
-
-                <h3>Temporary Processing</h3>
+                <h3>Authentication Information</h3>
                 <ul>
-                    <li>Data is processed temporarily during document generation</li>
-                    <li>No personal content is retained after operations complete</li>
-                    <li>Authentication tokens are managed by Coda's secure infrastructure</li>
-                </ul>
-
-                <h3>Generated Documents</h3>
-                <p>All generated documents remain in your Google Drive account under your complete control. We have no access to these documents after creation.</p>
-            </div>
-
-            <div class="section">
-                <h2>Data Sharing and Third Parties</h2>
-                
-                <h3>No Third-Party Sharing</h3>
-                <p>We do not share, sell, or transfer your data to third parties. Your information is processed solely for the functionality of the Document Generation Pack.</p>
-
-                <h3>Service Providers</h3>
-                <p>We work with the following trusted platforms:</p>
-                <ul>
-                    <li><strong>Coda.io:</strong> Platform hosting and pack infrastructure</li>
-                    <li><strong>Google APIs:</strong> Direct integration with Drive and Docs services</li>
-                </ul>
-
-                <p>These providers maintain their own privacy policies and security standards that govern their handling of data.</p>
-            </div>
-
-            <div class="section">
-                <h2>Security Measures</h2>
-                
-                <h3>Protection Methods</h3>
-                <ul>
-                    <li><strong>OAuth 2.0 Authentication:</strong> Industry-standard secure authorization</li>
-                    <li><strong>Encrypted Communications:</strong> All data transmission uses HTTPS/TLS encryption</li>
-                    <li><strong>Google's Security Infrastructure:</strong> Leveraging Google's enterprise-grade security</li>
-                    <li><strong>Minimal Data Exposure:</strong> Only accessing necessary APIs and permissions</li>
-                </ul>
-
-                <h3>Your Security Responsibilities</h3>
-                <ul>
-                    <li>Keep your Coda and Google accounts secure</li>
-                    <li>Regularly review authorized applications in your Google account</li>
-                    <li>Revoke access if you no longer use the pack</li>
+                    <li>The Pack uses Coda's built-in authentication system to securely manage access to your Google Account via the OAuth protocol. The Pack itself does not store your Google password.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2>Your Rights and Control</h2>
-                
-                <h3>Access and Control</h3>
-                <p>You maintain complete control over your data:</p>
+                <h2>4. How We Use Your Information</h2>
+                <p>Your data is used exclusively to perform the functions of the Pack at your request. These functions are:</p>
                 <ul>
-                    <li><strong>Access:</strong> All generated documents remain in your Google Drive</li>
-                    <li><strong>Modification:</strong> Edit or delete documents at any time</li>
-                    <li><strong>Revocation:</strong> Remove pack authorization through Coda or Google account settings</li>
-                    <li><strong>Data Portability:</strong> Export your documents using Google's data export tools</li>
+                    <li>To access and copy a specified Google Docs template from your Google Drive.</li>
+                    <li>To create a new folder structure within your Google Drive based on the path you provide.</li>
+                    <li>To populate the newly created document by finding and replacing placeholder tags (e.g., `&lt;&lt;key&gt;&gt;`) with the Content Data from your Coda doc.</li>
+                    <li>To delete a previously generated document from your Google Drive if you trigger the regeneration function.</li>
                 </ul>
-
-                <h3>Deleting Your Data</h3>
-                <p>To remove all pack-related data:</p>
-                <ol>
-                    <li>Revoke authorization in your Coda workspace</li>
-                    <li>Remove the pack from your Coda documents</li>
-                    <li>Optionally delete generated documents from your Google Drive</li>
-                </ol>
+                <p>We do not use your data for any other purpose, such as advertising, analytics, or profiling.</p>
             </div>
 
             <div class="section">
-                <h2>Compliance and Legal</h2>
-                
-                <h3>Regulatory Compliance</h3>
-                <p>Our practices align with:</p>
-                <ul>
-                    <li><strong>GDPR:</strong> European Union data protection requirements</li>
-                    <li><strong>CCPA:</strong> California Consumer Privacy Act provisions</li>
-                    <li><strong>Google API Policies:</strong> All applicable Google developer policies</li>
-                </ul>
+                <h2>5. Data Storage and Security</h2>
+                <p>The Document Generation Pack does not operate its own database and <strong>does not permanently store any of your personal data or document content.</strong></p>
+                <p>When you generate a document, the necessary data is processed temporarily in-memory on Coda's secure, sandboxed execution environment. This processing lasts only for the duration required to make the API calls to Google. Once the operation is complete, this temporary data is discarded. The security of your data at rest is maintained by the robust security protocols of your own Google Drive and Coda accounts.</p>
+            </div>
 
-                <h3>Legal Basis for Processing</h3>
-                <p>We process your data based on:</p>
+            <div class="section">
+                <h2>6. Data Sharing and Disclosure</h2>
+                <p>We do not sell, rent, or share your data with any third parties. All data processing occurs between your Coda workspace and your Google Account, orchestrated by the Pack's code running on Coda's platform.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. Your Consent and Control</h2>
+                <h3>Consent</h3>
+                <p>By installing the Pack in your Coda workspace and authenticating it with your Google Account, you consent to the data processing described in this policy.</p>
+                <h3>Control</h3>
+                <p>You have full control over your data. You can stop the Pack from processing your data at any time by:</p>
                 <ul>
-                    <li>Your explicit consent when authorizing the pack</li>
-                    <li>Legitimate interests in providing document automation services</li>
-                    <li>Contractual necessity to fulfill pack functionality</li>
+                    <li>Uninstalling the Pack from your Coda workspace.</li>
+                    <li>Revoking the Pack's access to your Google Account via your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">Google Account security settings page</a>.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2>Updates to This Policy</h2>
-                <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements. When we make changes:</p>
-                <ul>
-                    <li>We will update the "Last Updated" date</li>
-                    <li>Significant changes will be communicated through Coda or our website</li>
-                    <li>Continued use constitutes acceptance of updated terms</li>
-                </ul>
+                <h2>8. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in functionality or legal requirements. The "Last Updated" date at the top of this policy will indicate the latest revision. We encourage you to review this policy periodically.</p>
             </div>
 
             <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p><strong>Bot&Partners LLC</strong></p>
-                <p>Email: <a href="mailto:toolkit@bot-partners.com">toolkit@bot-partners.com</a></p>
-                <p>Business: Business Process Automation Specialists</p>
-                <p>Platform: Coda.io Development</p>
-                
-                <h3>Data Protection Inquiries</h3>
-                <p>For questions about this Privacy Policy or your data rights, please contact us at the email above with "Privacy Inquiry" in the subject line.</p>
+                <h3>9. Contact Us</h3>
+                <p>If you have any questions or concerns about this Privacy Policy or our data handling practices, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:toolkit@bot-partners.com">toolkit@bot-partners.com</a></p>
             </div>
 
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Bot&Partners LLC - Business Process Automation Specialists</p>
+            <p>&copy; 2025 Bot&Partners LLC - Business Process Automation Specialists</p>
             <p>Document Generation Pack for Coda | <a href="index.html">Home</a> | <a href="terms-of-use.html">Terms of Use</a></p>
         </div>
     </footer>
 </body>
 </html>
+```
